@@ -1,26 +1,59 @@
-html,
-body {
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.scrollbar-hide {
+  overflow: auto;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  /* IE and Edge */
+  scrollbar-width: none;
+  /* Firefox */
+}
+
+/* changing the content when its hovered */
+.item-custom p.new-label span {
+  position: relative;
+  content: 'NEW';
+}
+
+.item-custom:hover p.new-label span {
+  display: none;
+}
+
+.item-custom:hover p.new-label::after {
+  /* content: url('../public/foo.svg'); */
+}
+
+/* gradient for modal */
+.custom-gradient {
+  background: linear-gradient(
+    200deg,
+    rgb(8, 137, 160) 0%,
+    rgb(255, 255, 255) 50%
+  );
+}
+
+/* mantine modal reset*/
+.mantine-Modal-inner {
   padding: 0;
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  /* background: linear-gradient(200deg, rgb(8, 137, 160) 0%, rgb(255, 255, 255) 50%); */
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
+.mantine-Modal-modal {
+  padding: 0;
+  background-color: transparent;
 }
 
-* {
-  box-sizing: border-box;
-}
-
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
-  body {
-    color: white;
-    background: black;
+@media (min-width: 768px) {
+  .custom-gradient {
+    border-radius: 20px;
   }
 }
